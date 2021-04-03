@@ -21,7 +21,7 @@ public class Song {
     private String pic;
 
     private String lyric;
-
+    //保证前端访问
     private String url;
 
     public Integer getId() {

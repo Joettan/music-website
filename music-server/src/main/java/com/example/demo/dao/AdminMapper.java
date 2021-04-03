@@ -1,5 +1,4 @@
 package com.example.demo.dao;
-
 import com.example.demo.domain.Admin;
 import org.springframework.stereotype.Repository;
 

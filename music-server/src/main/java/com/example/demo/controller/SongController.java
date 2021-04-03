@@ -57,7 +57,7 @@ public class SongController {
         String introduction = req.getParameter("introduction").trim();
         String pic = "/img/songPic/tubiao.jpg";
         String lyric = req.getParameter("lyric").trim();
-
+        //写成try with resources形式更加友好
         if (mpfile.isEmpty()) {
             jsonObject.put("code", 0);
             jsonObject.put("msg", "音乐上传失败！");
@@ -84,22 +84,22 @@ public class SongController {
             song.setLyric(lyric);
             song.setUrl(storeUrlPath);
             boolean res = songService.addSong(song);
+            //Return upload message
             if (res) {
                 jsonObject.put("code", 1);
                 jsonObject.put("avator", storeUrlPath);
                 jsonObject.put("msg", "上传成功");
-                return jsonObject;
             } else {
                 jsonObject.put("code", 0);
                 jsonObject.put("msg", "上传失败");
-                return jsonObject;
             }
+            return jsonObject;
         } catch (IOException e) {
             jsonObject.put("code", 0);
             jsonObject.put("msg", "上传失败" + e.getMessage());
             return jsonObject;
         } finally {
-            return jsonObject;
+
         }
     }
 
